@@ -2,8 +2,6 @@
 micronaut:
   application:
     name: prometheus
-  server:
-    port: 8081
   metrics:
     enabled: true
     binders:
