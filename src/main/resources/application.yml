@@ -2,11 +2,13 @@
 micronaut:
   application:
     name: prometheus
-
----
-micronaut:
+  server:
+    port: 8081
   metrics:
     enabled: true
+    binders:
+      jvm:
+        enabled: false
 
 ---
 micronaut:
@@ -17,3 +19,7 @@ micronaut:
         enabled: true
         step: PT1M
         descriptions: true
+
+endpoints:
+  prometheus:
+    sensitive: false
