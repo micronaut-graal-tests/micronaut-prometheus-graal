@@ -11,9 +11,15 @@ import javax.inject.Singleton;
 @Controller("/")
 public class AlarmController {
 
+    @Timed(value = "method.alarms.save-single", percentiles = {0.5, 0.95}, histogram = true, description = "Save alarm timer (Single)")
+    @Get("/alarm-single")
+    public Single<Alarm> saveAlarmReactive() {
+        return Single.just(new Alarm(1, "Alarm 1", "High"));
+    }
+
     @Timed(value = "method.alarms.save", percentiles = {0.5, 0.95}, histogram = true, description = "Save alarm timer")
     @Get("/alarm")
-    public Single<Alarm> saveAlarm() {
-        return Single.just(new Alarm(1, "Alarm 1", "High"));
+    public Alarm saveAlarm() {
+        return new Alarm(2, "Alarm 2", "Medium");
     }
 }
