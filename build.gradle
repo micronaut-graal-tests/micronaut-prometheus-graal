@@ -11,9 +11,8 @@ version "0.1"
 group "example.micronaut"
 
 repositories {
-//    mavenLocal()
     mavenCentral()
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    maven { url "https://oss.jfrog.org/oss-snapshot-local" }
 }
 
 dependencyManagement {
@@ -28,10 +27,10 @@ configurations {
 }
 
 dependencies {
-    annotationProcessor "io.micronaut:micronaut-graal"
-    annotationProcessor "io.micronaut:micronaut-inject-java"
-    annotationProcessor "io.micronaut:micronaut-validation"
+    compileOnly "io.micronaut:micronaut-graal"
+    compileOnly "io.micronaut:micronaut-inject-java"
     compile "io.micronaut:micronaut-management"
+    compile "io.micronaut:micronaut-security"
     compile "io.micronaut.configuration:micronaut-micrometer-core"
     compile "io.micronaut:micronaut-http-client"
     compile "io.micronaut.configuration:micronaut-micrometer-registry-prometheus"
